@@ -1,26 +1,28 @@
 import { useState } from "react";
-import { useNotesDisPatch } from "../context/noteContext";
+import { useNotesDispatch } from "../context/noteContext";
 
 const AddNewNote = () => {
-  const dispatch = useNotesDisPatch()
+  const dispatch = useNotesDispatch();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+
   const submitHandler = (e) => {
     e.preventDefault();
-    if(!title && !description) return null;
-    const newNotes ={
-        title,
-        description,
-        id: Date.now(),
-        complated:false,
-        createAt: new Date().toISOString(),
-    }
+    if (!title.trim() && !description.trim()) return;
 
-    dispatch({ type: "add", payload: newNotes });
+    const newNote = {
+      title: title.trim(),
+      description: description.trim(),
+      id: Date.now(),
+      completed: false,
+      createdAt: new Date().toISOString(),
+    };
 
-    setTitle("")
-    setDescription("")
+    dispatch({ type: "add", payload: newNote });
+    setTitle("");
+    setDescription("");
   };
+
   return (
     <div className="add-new-note">
       <h2>Add New Note</h2>
@@ -30,14 +32,16 @@ const AddNewNote = () => {
           onChange={(e) => setTitle(e.target.value)}
           type="text"
           className="text-field"
-          placeholder="note title"
+          placeholder="Note title"
+          aria-label="Note title"
         />
         <input
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           type="text"
           className="text-field"
-          placeholder="note desk"
+          placeholder="Note description"
+          aria-label="Note description"
         />
         <button type="submit" className="btn btn--primary">
           Add New Note
