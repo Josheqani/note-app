@@ -5,10 +5,32 @@ const NotesDispatchContext = createContext(null);
 
 const STORAGE_KEY = "note_app_items_v1";
 
+const defaultNotes = [
+  {
+    id: 1,
+    title: "Welcome to Note App! 👋",
+    description: "Capture thoughts, organize tasks by category, search instantly, and toggle dark mode.",
+    category: "Personal",
+    completed: false,
+    createdAt: new Date().toISOString(),
+  },
+  {
+    id: 2,
+    title: "Fully Responsive & Mobile-friendly 📱",
+    description: "Adaptive layout optimized for phones, tablets, and desktop computers with touch controls.",
+    category: "Work",
+    completed: true,
+    createdAt: new Date(Date.now() - 1000 * 60 * 60).toISOString(),
+  },
+];
+
 const initNotes = () => {
   try {
     const saved = localStorage.getItem(STORAGE_KEY);
-    return saved ? JSON.parse(saved) : [];
+    if (saved !== null) {
+      return JSON.parse(saved);
+    }
+    return defaultNotes;
   } catch (err) {
     console.error("Failed to load notes from localStorage:", err);
     return [];
