@@ -22,9 +22,9 @@ A fast, responsive, and modern note-taking web application built with **React 19
 
 - **Framework**: [React 19](https://react.dev/)
 - **Build Tool**: [Vite 8](https://vitejs.dev/)
+- **Package Manager**: [pnpm](https://pnpm.io/)
 - **Icons**: [@heroicons/react](https://heroicons.com/)
 - **Styling**: Pure Modern CSS (CSS Variables, Flexbox, CSS Grid, Media Queries)
-- **CI/CD**: GitHub Actions (Node 20 LTS, automated GitHub Pages deployment)
 
 ---
 
@@ -84,9 +84,6 @@ pnpm lint
 
 ```text
 note-app/
-├── .github/
-│   └── workflows/
-│       └── deploy.yml          # GitHub Actions deployment workflow
 ├── src/
 │   ├── components/
 │   │   ├── AddNewNote.jsx      # Note creation form with validation & shortcuts
@@ -103,6 +100,7 @@ note-app/
 │   └── main.jsx                # Application entry point
 ├── index.html                  # HTML template with metadata
 ├── package.json                # Project dependencies and scripts
+├── pnpm-lock.yaml              # pnpm lockfile
 └── vite.config.js              # Vite configuration
 ```
 
