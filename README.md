@@ -33,7 +33,7 @@ A fast, responsive, and modern note-taking web application built with **React 19
 ### Prerequisites
 
 - Node.js (v18 or higher recommended)
-- npm
+- pnpm (v9 or v10 recommended)
 
 ### Installation
 
@@ -45,7 +45,7 @@ git clone https://github.com/Josheqani/note-app.git
 cd note-app
 
 # Install dependencies
-npm install
+pnpm install
 ```
 
 ### Development
@@ -53,7 +53,7 @@ npm install
 Run the development server with Hot Module Replacement (HMR):
 
 ```bash
-npm run dev
+pnpm dev
 ```
 
 ### Production Build
@@ -61,13 +61,13 @@ npm run dev
 Create an optimized production build in the `dist` directory:
 
 ```bash
-npm run build
+pnpm build
 ```
 
 Preview the production build locally:
 
 ```bash
-npm run preview
+pnpm preview
 ```
 
 ### Code Quality & Linting
@@ -75,7 +75,7 @@ npm run preview
 Run ESLint to check for syntax and style issues:
 
 ```bash
-npm run lint
+pnpm lint
 ```
 
 ---
